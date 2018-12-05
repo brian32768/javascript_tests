@@ -5,20 +5,20 @@
   "author": "Brian H Wilson",
   "scripts": {
     "build": "parcel build index.html --no-minify",
-    "start": "env.bat & parcel serve index.html --open"
+    "start": "parcel serve index.html --open"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brian32768/map46.git"
+    "url": "git+https://github.com/brian32768/javascript_tests.git"
   },
   "keywords": [
     "javascript"
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/brian32768/map46/issues"
+    "url": "https://github.com/brian32768/javascript_tests/issues"
   },
-  "homepage": "https://github.com/brian32768/map46#readme",
+  "homepage": "https://github.com/brian32768/javascript_tests#readme",
   "dependencies": {},
   "devDependencies": {}
 }
