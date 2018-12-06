@@ -1,4 +1,4 @@
-// index.js javascript_patterns
+// index.js javascript_tests
 //
 // I can still simply read environment though.
 let password = process.env.SECRETPASSWORD;
@@ -45,7 +45,7 @@ console.log(es6_datestamp());
 
 // ------------------------------------------------------------------------
 // Classes are another pattern for organization.
-import {Thing, TallThing} from './src/class_es6.js';
+import {Thing2D, Thing3D} from './src/class_es6.js';
 
 function intervalHandler(evt) {
     document.getElementById('header').innerHTML = 'ES6 time is ' + es6_datestamp();
@@ -57,31 +57,50 @@ btn.onclick = clickHandler;
 
 var timed = setInterval(intervalHandler, 1000);
 
-// class tests
-// Get an instance of our object
-var obelisk = new Thing('Diviner');
+// class tests and inheritance
+
+// Get an instance of our base class
+var obelisk = new Thing2D('Diviner');
 obelisk.length = 10;
 obelisk.width  = 10;
-obelisk.height = 100;
 
-// Show me its properties
-function clickHandler(evt) {
-    var content = '';
+console.log('Object: ' + obelisk); // calls toString() method
+console.log('Object area: ' + obelisk.area());
+console.log('Thing foo: ' + Thing2D.foo() + ' bar: ' + Thing2D.bar);
+
+// Get an instance of a subclass that extends Thing
+// Note this object accepts height in its constructor
+
+var tall_one = new Thing3D('Terrapene Mundi')
+tall_one.setSize(2,2,100);
+console.log(tall_one); // Dump the entire object, toString() not called.
+console.log(tall_one.volume());
+
+function getProps(obj) {
+    let content = ''
     // enumerate the thing's properties.
-    for (var p in obelisk) {
- 	content += p + ' = ' + obelisk[p] + '<br />';
+    for (var p in obj) {
+ 	      content += p + ' = ' + obj[p] + '<br />';
     }
+    return content;
+}
+// Show me properties
+function clickHandler(evt) {
+    let one = getProps(obelisk);
+    let two = getProps(tall_one);
+
+    tall_one.color = 'pale peach';
+
+    let content = "<h3>obelisk</h3>"  + one + "color=" + obelisk.getColor() +
+                  "<h3>tall_one</h3>" + two +
+                  "footprint=" + tall_one.area().toString() + ' ' +
+                  "volume=" + tall_one.volume().toString() + '<br />' +
+                  "color=" + tall_one.getColor()
     document.getElementById('test').innerHTML = content;
     console.log("click");
 }
 
-console.log('Object: ' + obelisk); // calls toString() method
-console.log('Object volume: ' + obelisk.volume());
-console.log('Thing foo: ' + Thing.foo() + ' bar: ' + Thing.bar);
-
-var t = new TallThing('Terrapene Mundi', 1000);
-console.log(t); // Dump the entire object, toString() not called.
-console.log(t.volume());
+// namespaces
 
 import MyNamespace from './src/namespaces';
 let ns = new MyNamespace();

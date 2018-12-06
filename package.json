@@ -14,11 +14,12 @@
   "keywords": [
     "javascript"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/brian32768/javascript_tests/issues"
   },
   "homepage": "https://github.com/brian32768/javascript_tests#readme",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {}
 }
