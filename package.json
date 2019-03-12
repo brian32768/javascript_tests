@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/brian32768/javascript_tests#readme",
   "dependencies": {
+    "usng": "^0.1.2"
   },
   "devDependencies": {}
 }

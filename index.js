@@ -1,8 +1,7 @@
-// index.js javascript_tests
-//
-// I can still simply read environment though.
-let password = process.env.SECRETPASSWORD;
-console.log("password: ", password);
+import { Converter } from 'usng/usng';
+
+let c = new Converter;
+console.log(c, c.LLtoUSNG(44,-123, 5));
 
 // ------------------------------------------------------------------------
 // What are the curly braces for on the import line, and when should I use them and when not?
